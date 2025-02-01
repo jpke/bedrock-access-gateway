@@ -1,0 +1,40 @@
+# AWS Configuration
+aws_region: "us-east-1"
+environment: "dev"
+project_name: "bedrock-proxy"
+
+# State Configuration
+state_bucket: "my-terraform-state-bucket"
+state_lock_table: "terraform-locks"
+
+# Lambda Configuration
+lambda:
+  memory_size: 256
+  timeout: 30
+
+# ECR Configuration
+ecr:
+  account_id: "366590864501"
+  repository: "bedrock-proxy-api"
+  image_tag: "latest"
+
+# VPC Configuration
+vpc:
+  id: "vpc-xxxxxxxx" 
+  subnet_ids:
+    - "subnet-xxxxxxxx"
+    - "subnet-xxxxxxxx"
+
+# ALB Configuration
+alb:
+  port: 80
+  allowed_cidr_blocks:
+    - "0.0.0.0/0"
+
+# Application Configuration
+app:
+  debug_mode: "false"
+  default_model: "anthropic.claude-3-sonnet-20240229-v1:0"
+  default_embedding_model: "amazon.titan-embed-text-v1"
+  enable_cross_region_inference: false
+  enable_deletion_protection: false 
